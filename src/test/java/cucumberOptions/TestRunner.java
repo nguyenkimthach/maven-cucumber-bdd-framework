@@ -8,7 +8,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = "src/test/java/features", glue = "stepDefinitions", monochrome = true, plugin = { "pretty", "html:target/site/cucumber-report-default",
-		"json:target/site/cucumber.json" }, snippets = SnippetType.CAMELCASE, tags = { "@displayed" })
+		"json:target/site/cucumber.json" }, snippets = SnippetType.CAMELCASE, tags = { "@multiple_param" }) // , dryRun = true
 public class TestRunner {
 
 }
