@@ -13,7 +13,7 @@ import cucumber.api.junit.Cucumber;
 					plugin = { "pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json" }, 
 					snippets = SnippetType.CAMELCASE, 
 					//dryRun = true,
-					tags = { "@register_login" }) 
+					tags = { "@Register_Login_Customer" }) 
 public class NopCommerceTestRunner {
-
+	
 }

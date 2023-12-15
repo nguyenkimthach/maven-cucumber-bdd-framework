@@ -19,6 +19,7 @@ public class RegisterPageSteps {
 		driver = Hooks.openAndQuitBrowser();
 		userRegisterPage = PageGeneratorManage.getUserRegisterPage(driver);
 		emailAddress = DataHelper.getDataHelper().getEmailAddress() ;
+		System.out.println(emailAddress);
 		password = "123456";
 	}
 	
@@ -54,7 +55,7 @@ public class RegisterPageSteps {
 
 	@Then("^Verify register success message is diplayed$")
 	public void verifyRegisterSuccessMessage() {
-		Assert.assertEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed...");
+		Assert.assertEquals(userRegisterPage.getRegisterSuccessMessage(), "Your registration completed");
 	}
 
 	@When("^Click to Continue button$")

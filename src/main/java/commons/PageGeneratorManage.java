@@ -11,6 +11,7 @@ import pageObjects.nopCommerce.user.UserLoginPageObject;
 import pageObjects.nopCommerce.user.UserMyProductReviewPageObject;
 import pageObjects.nopCommerce.user.UserRegisterPageObject;
 import pageObjects.nopCommerce.user.UserRewardPointPageObject;
+import pageObjects.nopCommerce.user.commonPageObject;
 
 public class PageGeneratorManage {
 
@@ -37,9 +38,13 @@ public class PageGeneratorManage {
 	public static UserRewardPointPageObject getUserRewardPointPage(WebDriver driver) {
 		return new UserRewardPointPageObject(driver);
 	}
-
+	
 	public static UserMyProductReviewPageObject getUserMyProductReviewPage(WebDriver driver) {
 		return new UserMyProductReviewPageObject(driver);
+	}
+
+	public static commonPageObject getCommonPage(WebDriver driver) {
+		return new commonPageObject(driver);
 	}
 
 	public static AdminLoginPageObject getAdminLoginPage(WebDriver driver) {
