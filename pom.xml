@@ -6,45 +6,35 @@
 	<name>maven-cucumber-bdd</name>
 
 	<properties>
-		<!-- Encoding for Build/ Console -->
+		<cucumber.version>1.2.5 </cucumber.version>
+		<selenium.version> 3.141.59 </selenium.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-
-		<!-- Encoding for Report -->
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
-		<!-- Compiler Code with Java 11 -->
 		<maven.compiler.target>11</maven.compiler.target>
 		<maven.compiler.source>11</maven.compiler.source>
-
-
-		<cucumber.version>4.2.0</cucumber.version>
-		<selenium.version>3.141.59</selenium.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
-			<groupId>io.cucumber</groupId>
+			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-java</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
-			<groupId>io.cucumber</groupId>
+			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-core</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
-			<groupId>io.cucumber</groupId>
+			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-junit</artifactId>
 			<version>${cucumber.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
 		<dependency>
-			<groupId>io.cucumber</groupId>
+			<groupId>info.cukes</groupId>
 			<artifactId>cucumber-testng</artifactId>
 			<version>${cucumber.version}</version>
 		</dependency>
@@ -53,20 +43,19 @@
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
 		</dependency>
-		
 		<dependency>
 			<groupId>io.github.bonigarcia</groupId>
 			<artifactId>webdrivermanager</artifactId>
-			<version>5.4.1</version>
+			<version>3.0.0</version>
 			<scope>test</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>net.masterthought</groupId>
 			<artifactId>cucumber-reporting</artifactId>
@@ -80,7 +69,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
-				<version>3.8.1</version>
+				<version>3.6.0</version>
 				<configuration>
 					<source>11</source>
 					<target>11</target>
@@ -92,7 +81,7 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.22.2</version>
+				<version>2.18.1</version>
 				<configuration>
 					<includes>
 						<include>**/*/CucumberTestRunner.java</include>
@@ -113,7 +102,7 @@
 							<goal>generate</goal>
 						</goals>
 						<configuration>
-							<projectName>SELENIUM ONLINE - NOPCOMMERCE</projectName>
+							<projectName>SELENIUM ONLINE - BANK GURU</projectName>
 							<outputDirectory>${project.build.directory}/site/cucumber-reporting</outputDirectory>
 							<cucumberOutput>${project.build.directory}/site/cucumber.json</cucumberOutput>
 							<enableFlashCharts>true</enableFlashCharts>
