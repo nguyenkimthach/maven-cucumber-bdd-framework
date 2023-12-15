@@ -1,4 +1,4 @@
-package stepDefinitions;
+package facebook.stepDefinitions;
 
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
@@ -10,6 +10,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import cucumber.api.DataTable;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import cucumber.api.java.en.Given;
 import cucumber.api.java.en.When;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -29,13 +30,13 @@ public class NopCommerceSteps {
 		driver.quit();
 	}
 
-	// @Given("^Open nopcommerce application$")
-	// public void openFacebookApplication() {
-	// WebDriverManager.firefoxdriver().setup();
-	// driver = new FirefoxDriver();
-	// driver.get("https://demo.nopcommerce.com/login");
-	// driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	// }
+	@Given("^Open nopcommerce application$")
+	public void openFacebookApplicationOld() {
+		WebDriverManager.firefoxdriver().setup();
+		driver = new FirefoxDriver();
+		driver.get("https://demo.nopcommerce.com/login");
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	}
 
 	@When("^Input to Username textbox$")
 	public void inputToUsernameTextbox() {
@@ -75,10 +76,10 @@ public class NopCommerceSteps {
 		driver.findElement(By.cssSelector("button.login-button")).click();
 	}
 
-	// @After
-	// public void closeApplication() {
-	// driver.quit();
-	// }
+	@When("^Close application$")
+	public void closeApplicationOld() {
+		driver.quit();
+	}
 
 	@When("^Input to Username and Password$")
 	public void inputToUsernameAndPassword(DataTable table) {
