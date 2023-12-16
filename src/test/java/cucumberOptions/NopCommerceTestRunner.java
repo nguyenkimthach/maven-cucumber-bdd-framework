@@ -10,7 +10,7 @@ import cucumber.api.junit.Cucumber;
 @CucumberOptions(features = "src/test/java/nopCommerce/feature", 
 					glue = "nopCommerce.stepDefinitions", 
 					monochrome = true, 
-					plugin = { "pretty", "html:target/site/cucumber-report-default", "json:target/site/cucumber.json" }, 
+					plugin = { "pretty", "html:target/site/cucumber-report-default", "json:target/site/noCommerceCucumber.json" }, 
 					snippets = SnippetType.CAMELCASE, 
 					//dryRun = true,
 					tags = { "@Register_Login_Customer" }) 

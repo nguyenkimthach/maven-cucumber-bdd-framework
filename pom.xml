@@ -38,6 +38,12 @@
 			<scope>test</scope>
 		</dependency>
 		<dependency>
+			<groupId>info.cukes</groupId>
+			<artifactId>cucumber-picocontainer</artifactId>
+			<version>${cucumber.version}</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
 			<groupId>org.seleniumhq.selenium</groupId>
 			<artifactId>selenium-java</artifactId>
 			<version>${selenium.version}</version>
@@ -96,9 +102,13 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.19.1</version>
 				<configuration>
-				<testFailureIgnore>true</testFailureIgnore>
+					<testFailureIgnore>true</testFailureIgnore>
+					<parallel>classes</parallel>
+					<forkMode>perthread</forkMode>
+					<threadCount>3</threadCount>
+					<argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
 					<includes>
-						<include>**/*/NopCommerceTestRunner.java</include>
+						<include>**/*TestRunner.java</include>
 					</includes>
 				</configuration>
 			</plugin>
@@ -123,7 +133,7 @@
 							<jsonFiles>
 								<param>**/*.json</param>
 							</jsonFiles>
-							
+
 							<checkBuildResult>false</checkBuildResult>
 						</configuration>
 					</execution>

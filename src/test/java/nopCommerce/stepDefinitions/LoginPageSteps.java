@@ -10,16 +10,18 @@ import pageObjects.nopCommerce.user.UserLoginPageObject;
 public class LoginPageSteps {
 	WebDriver driver;
 	UserLoginPageObject userLoginPage;
+	TestContext testContext;
 
-	public LoginPageSteps() {
+	public LoginPageSteps(TestContext testContext) {
 		driver = Hooks.openAndQuitBrowser();
+		this.testContext = testContext;
 		userLoginPage = PageGeneratorManage.getUserLoginPage(driver);
 	}
 
 	@When("^Submit valid infor to login form$")
 	public void submitValidInforToLoginForm() {
-		userLoginPage.inPutToEmailTextbox(RegisterPageSteps.emailAddress);
-		userLoginPage.inPutToPasswordTextbox(RegisterPageSteps.password);
+		userLoginPage.inPutToEmailTextbox((String)testContext.getDataContext().getContext(Context.EMAIL));
+		userLoginPage.inPutToPasswordTextbox((String)testContext.getDataContext().getContext(Context.PASSWORD));
 	}
 
 	@When("^Click to Login button$")

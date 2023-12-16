@@ -13,14 +13,15 @@ import utilities.DataHelper;
 public class RegisterPageSteps {
 	WebDriver driver;
 	UserRegisterPageObject userRegisterPage;
-	static String emailAddress, password;
+	TestContext testContext;
 
-	public RegisterPageSteps() {
+	public RegisterPageSteps(TestContext testContext) {
 		driver = Hooks.openAndQuitBrowser();
+		this.testContext = testContext;
 		userRegisterPage = PageGeneratorManage.getUserRegisterPage(driver);
-		emailAddress = DataHelper.getDataHelper().getEmailAddress() ;
-		System.out.println(emailAddress);
-		password = "123456";
+		testContext.getDataContext().setContext(Context.EMAIL, DataHelper.getDataHelper().getEmailAddress()) ;
+		testContext.getDataContext().setContext(Context.PASSWORD, "123456") ;
+		System.out.println((String)testContext.getDataContext().getContext(Context.EMAIL));
 	}
 	
 	@When("^Input to first name textbox$")
@@ -35,17 +36,17 @@ public class RegisterPageSteps {
 
 	@When("^Input to Email textbox$")
 	public void inputToEmailTextbox() {
-		userRegisterPage.inPutToEmailTextbox(emailAddress);
+		userRegisterPage.inPutToEmailTextbox((String)testContext.getDataContext().getContext(Context.EMAIL));
 	}
 
 	@When("^Input to Password textbox$")
 	public void inputToPasswordTextbox() {
-		userRegisterPage.inPutToPasswordTextbox(password);
+		userRegisterPage.inPutToPasswordTextbox((String)testContext.getDataContext().getContext(Context.PASSWORD));
 	}
 
 	@When("^Input to ConfirmPassword textbox$")
 	public void inputToConfirmPasswordTextbox() {
-		userRegisterPage.inPutToConfirmPasswordTextbox(password);
+		userRegisterPage.inPutToConfirmPasswordTextbox((String)testContext.getDataContext().getContext(Context.PASSWORD));
 	}
 
 	@When("^Click to Regiter button$")

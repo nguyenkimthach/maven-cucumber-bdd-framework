@@ -62,13 +62,13 @@ Feature: Register and Login
   |John				|Witch		|10	|May	|1998|email|ComFan.Colt|
   
   
- @Regex
-  Scenario: Regex
-	When I input first Account ID 
-	And I input second Account ID 
-	And I input third Account ID 
-	And I transfer to "<Amount>" USD 
-	And I withdraw to "<Amount>" USD
+ #@Regex
+ # Scenario: Regex
+	#When I input first Account ID 
+	#And I input second Account ID 
+#	And I input third Account ID 
+	#And I transfer to "<Amount>" USD 
+	#And I withdraw to "<Amount>" USD
 
 	
 	
